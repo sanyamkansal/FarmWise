@@ -1,0 +1,56 @@
+[
+    {
+        "scheme_name": {
+            "en": "PM-Kisan Samman Nidhi Yojana",
+            "hi": "पीएम-किसान सम्मान निधि योजना",
+            "ml": "പിഎം-കിസാൻ സન્મാൻ നിധി പദ്ധതി"
+        },
+        "description": {
+            "en": "Provides ₹6,000 per year to small and marginal farmers.",
+            "hi": "छोटे और सीमांत किसानों को प्रति वर्ष ₹6,000 प्रदान करता है।",
+            "ml": "ചെറിയ-ഉളള കർഷകർക്കും അതിര്‍ത്തി കർഷകർക്കും വർഷം ₹6,000 നൽകുന്നു."
+        },
+        "eligibility": {
+            "en": "All small and marginal farmers.",
+            "hi": "सभी छोटे और सीमांत किसान।",
+            "ml": "എല്ലാ ചെറിയ അതിര്‍ത്തി കർഷകരും."
+        },
+        "more_info": "https://pmkisan.gov.in/"
+    },
+    {
+        "scheme_name": {
+            "en": "Soil Health Card Scheme",
+            "hi": "मृदा स्वास्थ्य कार्ड योजना",
+            "ml": "മണ്ണ് ആരോഗ്യ കാർഡ് പദ്ധതി"
+        },
+        "description": {
+            "en": "Free soil health cards to monitor soil quality.",
+            "hi": "मृदा गुणवत्ता की निगरानी के लिए मुफ्त मृदा स्वास्थ्य कार्ड।",
+            "ml": "മണ്ണിന്റെ ഗുണമേന്മ നിയന്ത്രിക്കാൻ സൗജന്യ മണ്ണ് ആരോഗ്യ കാർഡ്."
+        },
+        "eligibility": {
+            "en": "All farmers.",
+            "hi": "सभी किसान।",
+            "ml": "എല്ലാ കർഷകരും."
+        },
+        "more_info": "https://soilhealth.dac.gov.in/"
+    },
+    {
+        "scheme_name": {
+            "en": "National Agriculture Market (eNAM)",
+            "hi": "राष्ट्रीय कृषि बाजार (eNAM)",
+            "ml": "നാഷണൽ അഗ്രിക്കല്‍ച്ചർ മാർക്കറ്റ് (eNAM)"
+        },
+        "description": {
+            "en": "Online trading platform for farmers to discover better prices.",
+            "hi": "किसानों के लिए बेहतर मूल्य खोजने के लिए ऑनलाइन ट्रेडिंग प्लेटफ़ॉर्म।",
+            "ml": "കർഷകർക്ക് മികച്ച വില കണ്ടെത്താനുള്ള ഓൺലൈൻ വ്യാപാര പ്ലാറ്റ്‌ഫോം."
+        },
+        "eligibility": {
+            "en": "All registered farmers and traders.",
+            "hi": "सभी पंजीकृत किसान और व्यापारी।",
+            "ml": "എല്ലാ രജിസ്റ്റർ ചെയ്ത കർഷകരും വ്യാപാരികളും."
+        },
+        "more_info": "https://www.enam.gov.in/"
+    }
+]

@@ -1,0 +1,13 @@
+# Security
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+env/
+.venv/
+
+# IDEs
+.vscode/
+.idea/

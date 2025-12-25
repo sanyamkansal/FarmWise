@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>FarmWise</title>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=114">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <div id="toast-container"></div>
+  <header class="header">
+    <div class="header-content">
+      <div class="title-area">
+        <h1><i class="fa-solid fa-seedling"></i> <span data-i18n="app-title">FarmWise</span></h1>
+        <p data-i18n="app-subtitle">AI-Powered Assistant for Indian Farmers</p>
+      </div>
+      <div class="header-controls">
+        <button id="theme-toggle" onclick="toggleTheme()" class="theme-btn">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <div class="language-wrapper">
+          <select id="global-language" onchange="syncAndSwitchLanguage(this)">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी</option>
+            <option value="ml">മലയാളം</option>
+            <option value="ta">தமிழ்</option>
+            <option value="kn">ಕನ್ನಡ</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Full-Width Assistant Hero -->
+  <div class="assistant-hero">
+    <div class="hero-content">
+      <div class="assistant-header-row">
+        <h2 id="assistant-title" style="text-align: center; margin: 0; color: var(--primary-dark); font-size: 2rem;">
+          <i class="fa-solid fa-robot"></i> <span data-i18n="assistant-title">AI Farm Assistant</span>
+        </h2>
+
+        <div class="language-wrapper-secondary">
+          <select id="assistant-language" onchange="syncAndSwitchLanguage(this)">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी</option>
+            <option value="ml">മലയാളം</option>
+            <option value="ta">தமிழ்</option>
+            <option value="kn">ಕನ್ನಡ</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="assistant-container">
+        <div id="assistant-output" class="chat-output">
+          <div class="welcome-message">
+            <i class="fa-solid fa-hand-holding-droplet"></i>
+            <p data-i18n="welcome-msg">Namaste! Ask me anything about farming or upload a plant photo.</p>
+          </div>
+        </div>
+
+        <div id="image-preview-container" style="display:none;">
+          <img id="preview" class="preview">
+          <button onclick="clearImage()" class="remove-img-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <div class="input-area">
+          <textarea id="text-query" rows="1" data-i18n-placeholder="chat-placeholder"
+            placeholder="Type your question..."></textarea>
+          <div class="action-buttons">
+            <button onclick="recordVoice()" title="Voice Input" class="icon-btn"><i
+                class="fa-solid fa-microphone"></i></button>
+            <input type="file" id="plant-image" accept="image/*" style="display: none;"
+              onchange="handleImageUpload(this)">
+            <button onclick="document.getElementById('plant-image').click()" title="Camera/Upload" class="icon-btn"><i
+                class="fa-solid fa-camera"></i></button>
+            <button onclick="submitQuery()" class="send-btn" title="Send"><i
+                class="fa-solid fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container main-grid">
+
+    <div class="section weather-section-bottom">
+      <h2 id="weather-title"><i class="fa-solid fa-cloud-sun-rain"></i> <span data-i18n="weather-title">Local
+          Weather</span></h2>
+      <div id="weather-output"></div>
+      <div class="loader" id="weather-loader">
+        <i class="fa-solid fa-spinner fa-spin"></i> <span data-i18n="loading-weather">Loading weather...</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2><i class="fa-solid fa-chart-line"></i> <span data-i18n="market-title">Crop Market Price</span></h2>
+      <input type="text" id="crop-name" data-i18n-placeholder="crop-placeholder" placeholder="Crop Name (e.g., Tomato)">
+      <input type="text" id="state-name" data-i18n-placeholder="state-placeholder"
+        placeholder="State Name (e.g., Andhra Pradesh)">
+      <button onclick="getCropPrice()" class="full-width-btn" data-i18n="check-price-btn">Check Price</button>
+      <div id="market-price-output" style="margin-top: 1rem;"></div>
+    </div>
+
+    <div class="section">
+      <h2><i class="fa-solid fa-scroll"></i> <span data-i18n="schemes-title">Government Schemes</span></h2>
+      <button onclick="getGovernmentSchemes()" class="full-width-btn" data-i18n="load-schemes-btn">Load Government
+        Schemes</button>
+      <div id="schemes-output" style="margin-top: 1rem;"></div>
+    </div>
+
+  </div>
+
+  <footer>
+    &copy; <span id="current-year"></span> FarmWise. <span data-i18n="footer-text">Empowering Farmers with AI.</span>
+  </footer>
+
+  <!-- Forecast Modal -->
+  <div id="forecast-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeForecastModal()">&times;</span>
+      <h2><i class="fa-solid fa-calendar-days"></i> 3-Day Forecast</h2>
+      <div id="forecast-grid-container" class="forecast-modal-grid">
+        <!-- Forecast items injected here -->
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}?v=6"></script>
+</body>
+
+</html>
