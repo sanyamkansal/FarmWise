@@ -19,11 +19,11 @@
 -   **AI Model**: Google Gemini 2.5 Flash (via `google-generativeai`)
 -   **Frontend**: HTML5, CSS3, JavaScript (Vanillajs)
 -   **Data Sources**: 
-    -   Weather API (OpenWeather/WeatherAPI)
+    -   Weather API (WeatherAPI)
     -   Data.gov.in (Market Prices)
 -   **Design**: Responsive UI with Dark Mode support
 
-## � Project Structure
+## 📁 Project Structure
 
 ```text
 farmwise/
@@ -41,13 +41,13 @@ farmwise/
     └── index.html      # Main Dashboard
 ```
 
-## �🚀 Installation & Setup
+## 🚀 Installation & Setup
 
 Follow these steps to run the project locally on your machine.
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/sanyamkansal/farmwise
+git clone https://github.com/sanyamkansal/FarmWise
 cd farmwise
 ```
 
