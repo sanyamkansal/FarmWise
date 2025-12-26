@@ -23,7 +23,7 @@
     -   Data.gov.in (Market Prices)
 -   **Design**: Responsive UI with Dark Mode support
 
-## 📁 Project Structure
+## � Project Structure
 
 ```text
 farmwise/
@@ -47,7 +47,7 @@ Follow these steps to run the project locally on your machine.
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/sanyamkansal/FarmWise
+git clone https://github.com/sanyamkansal/farmwise
 cd farmwise
 ```
 
