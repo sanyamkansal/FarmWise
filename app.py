@@ -297,7 +297,6 @@ def get_weather():
     except Exception as e:
         return jsonify({"error": f"Error fetching weather data: {str(e)}"})
 
-# Load Crop Price Data
 try:
     crop_price_df = pd.read_csv("cropprice.csv")
 except Exception as e:
@@ -316,14 +315,13 @@ def get_crop_price():
     if not crop_name or not state_name:
         return jsonify({"error": "Crop name and state name are required"})
 
-    # Filter by crop and state (case-insensitive)
     matches = crop_price_df[
         crop_price_df['Commodity'].str.lower().str.contains(crop_name.lower(), na=False) &
         crop_price_df['State'].str.lower().str.contains(state_name.lower(), na=False)
     ]
     
     if matches.empty:
-        return jsonify([]) # Return empty list
+        return jsonify([])
 
     result = matches[[
         "State", "District", "Market", "Commodity", "Arrival_Date",
@@ -353,10 +351,9 @@ def get_schemes():
             
         formatted_schemes = []
         for item in schemes_data:
-            # Get name in requested language or fallback to English
+
             name = item['scheme_name'].get(language, item['scheme_name'].get('en', 'Unknown Scheme'))
-            
-            # Get description in requested language or fallback to English
+
             desc = item['description'].get(language, item['description'].get('en', 'No description available'))
             
             formatted_schemes.append({
