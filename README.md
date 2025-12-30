@@ -82,6 +82,11 @@ python app.py
 ```
 Open your browser and visit: `http://localhost:5000`
 
+## 🔗 Notes
+
+- Maximum plant image size: 5MB
+- Supported image types: PNG, JPG, JPEG, GIF, BMP, WebP
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
@@ -91,6 +96,11 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4.  Push to the branch (`git push origin feature/AmazingFeature`)
 5.  Open a Pull Request
+
+## 👨‍💻 Author
+
+**Sanyam Kansal**
+- GitHub: [sanyamkansal](https://github.com/sanyamkansal)
 
 ## 📄 License
 
