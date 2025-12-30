@@ -11,3 +11,6 @@ env/
 # IDEs
 .vscode/
 .idea/
+
+*.css linguist-vendored
+*.js  linguist-vendored
